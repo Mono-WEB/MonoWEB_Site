@@ -1,17 +1,41 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 import logo from "../../assets/img/logo.png";
+
+import Footer from "../FooterBlock";
 
 export default function HeaderLayout({ children }) {
   return (
     <>
+      <Head>
+        <meta charSet="UTF-8" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+        {/* <title>Разработка интернет магазинов, сайтов. Контекстная реклама | MonoWEB</title> */}
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap&subset=cyrillic"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+      </Head>
       <header className="header">
         <div className="header__wrapper"></div>
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="d-none d-sm-block col-sm-3 col-md-3 col-lg-3">
               <Link href={"/"}>
-                <a><Image className="logo" src={logo} alt="" /></a>
+                <a>
+                  <Image className="logo" src={logo} alt="" />
+                </a>
               </Link>
             </div>
             <div className="col-9 col-sm-7 col-md-6 col-lg-3">
@@ -51,7 +75,7 @@ export default function HeaderLayout({ children }) {
 
               <div className="burger">
                 <svg className="burger__menu">
-                  {/* <use xlink:href="#burger"></use> */}
+                  <use xlinkHref="#burger"></use>
                 </svg>
               </div>
             </div>
@@ -59,8 +83,9 @@ export default function HeaderLayout({ children }) {
         </div>
       </header>
       <div className="content">{children}</div>
+      <Footer />
 
-      <style jsx>{`
+      <style jsx global>{`
         .header {
           position: fixed;
           width: 100%;
